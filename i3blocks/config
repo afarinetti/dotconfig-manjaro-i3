@@ -1,0 +1,137 @@
+# i3blocks configuration file
+#
+# The i3blocks man page describes the usage of the binary,
+# and its website describes the configuration:
+#
+#     https://vivien.github.io/i3blocks
+
+
+# Global properties
+separator=true
+separator_block_width=15
+
+[keyindicator]
+command=$HOME/.config/i3blocks/scripts/keyindicator
+#Allowed keys are CAPS and NUM
+KEY=CAPS
+markup=pango
+interval=once
+signal=11
+#TEXT_ON=CapsLockOn
+#TEXT_OFF=CapsLockOff
+COLOR_ON=#FFFFFF
+COLOR_OFF=#222222
+BG_COLOR_ON=#FF0000
+
+#[mediaplayer]
+#command=$HOME/.config/i3blocks/scripts/mediaplayer
+#instance=spotify
+#interval=5
+#signal=10
+
+#[documentation]
+#full_text=Documentation
+#website=https://vivien.github.io/i3blocks
+#command=xdg-open "$website"
+#color=#f12711
+
+[cpu_usage]
+command=$HOME/.config/i3blocks/scripts/cpu_usage
+interval=10
+LABEL= 
+#min_width=CPU: 100.00%
+#T_WARN=50
+#T_CRIT=80
+#DECIMALS=2
+
+##[cpu_usage2]
+##command=$HOME/.config/i3blocks/scripts/cpu_usage2
+##markup=pango
+##interval=persist
+###min_width=CPU 100.00%
+###REFRESH_TIME=1
+##LABEL= 
+###WARN_PERCENT=50
+###CRIT_PERCENT=80
+###DECIMALS=2
+
+[memory]
+command=$HOME/.config/i3blocks/scripts/memory
+label= 
+interval=30
+
+[temperature]
+command=$HOME/.config/i3blocks/scripts/temperature
+label= 
+interval=10
+#T_WARN=70
+#T_CRIT=90
+SENSOR_CHIP="coretemp-isa-*"
+
+[disk]
+command=$HOME/.config/i3blocks/scripts/disk
+label= 
+dir=/
+#ALERT_LOW=10
+interval=30
+
+#[iface]
+#command=$HOME/.config/i3blocks/scripts/iface
+##label= 
+#IFACE=wlp0s20f3
+#color=#00FF00
+#interval=10
+
+[ssid]
+command=$HOME/.config/i3blocks/scripts/ssid
+INTERFACE=wlp0s20f3
+interval=10
+
+[iface]
+command=$HOME/.config/i3blocks/scripts/iface
+label= 
+IFACE=enp38s0f1
+color=#00FF00
+interval=10
+
+#[volume]
+#command=$HOME/.config/i3blocks/scripts/volume
+#LABEL= 
+##LABEL=VOL 
+#interval=once
+#signal=10
+
+[volume-pulseaudio]
+command=$HOME/.config/i3blocks/scripts/volume-pulseaudio
+interval=persist
+#signal=1
+#MIXER=[determined automatically]
+#SCONTROL=[determined automatically]
+##exposed format variables: ${SYMB}, ${VOL}, ${INDEX}, ${NAME}
+#LONG_FORMAT="${SYMB} ${VOL}% [${INDEX}:${NAME}]"
+LONG_FORMAT="${SYMB}${VOL}%"
+#SHORT_FORMAT="${SYMB} ${VOL}% [${INDEX}]"
+SHORT_FORMAT="${SYMB}${VOL}%"
+#AUDIO_HIGH_SYMBOL='  '
+#AUDIO_MED_THRESH=50
+#AUDIO_MED_SYMBOL='  '
+#AUDIO_LOW_THRESH=0
+#AUDIO_LOW_SYMBOL='  '
+#AUDIO_DELTA=5
+#DEFAULT_COLOR="#ffffff"
+#MUTED_COLOR="#a0a0a0"
+#USE_ALSA_NAME=0
+#USE_DESCRIPTION=0
+## SUBSCRIBE=1 requires interval=persist and always uses LONG_FORMAT
+SUBSCRIBE=1
+
+[battery2]
+command=$HOME/.config/i3blocks/scripts/battery2
+#label= 
+markup=pango
+interval=10
+
+[time]
+label= 
+command=date '+%F %l:%M %p'
+interval=1
